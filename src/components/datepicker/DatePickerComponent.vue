@@ -344,6 +344,7 @@ export default defineComponent({
     const isRtl = computed(() => {
       return translation.value && translation.value.rtl === true;
     });
+
     /** ********************************** Methods  *********************************** */
 
     /**
@@ -401,6 +402,7 @@ export default defineComponent({
       showDayView.value = true;
       return true;
     }
+
     /**
      * Show the month picker
      * @return {Boolean}
@@ -413,6 +415,7 @@ export default defineComponent({
       showMonthView.value = true;
       return true;
     }
+
     /**
      * Show the year picker
      * @return {Boolean}
@@ -425,6 +428,7 @@ export default defineComponent({
       showYearView.value = true;
       return true;
     }
+
     /**
      * Sets the initial picker page view: day, month or year
      */
@@ -447,6 +451,7 @@ export default defineComponent({
           break;
       }
     }
+
     /**
      * Effectively a toggle to show/hide the calendar
      * @return {mixed}
@@ -468,12 +473,14 @@ export default defineComponent({
      * @param {Number} timestamp
      */
     function setDate1(timestamp: string | number | Date): void {
-      const date = new Date(timestamp);
-      selectedDate.value = date;
-      setPageDate(date);
-      emit('selected', date);
-      emit('update:modelValue', date);
-      emit('input', date);
+      if (!Number.isNaN(timestamp)) {
+        const date = new Date(timestamp);
+        selectedDate.value = date;
+        setPageDate(date);
+        emit('selected', date);
+        emit('update:modelValue', date);
+        emit('input', date);
+      }
     }
 
     /**
@@ -501,12 +508,14 @@ export default defineComponent({
       }
       resetTypedDate.value = new Date();
     }
+
     /**
      * @param {Object} date
      */
     function selectDisabledDate(date: any): void {
       emit('selected-disabled', date);
     }
+
     /**
      * @param {Object} month
      */
@@ -587,6 +596,7 @@ export default defineComponent({
     function closeOnClickOutside(): void {
       close();
     }
+
     /** ********************************** Watchers  *********************************** */
     watch(
       () => props.modelValue,

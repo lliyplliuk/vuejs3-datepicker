@@ -282,7 +282,8 @@ export default defineComponent({
         const format = typeof props.format === 'function' ? props.format(str) : props.format;
         if (str) {
           const date = moment(str, format.toUpperCase()).toDate();
-          if (!date) {
+          console.log(date);
+          if (!date || Number.isNaN(date)) {
             clearDate();
             (inputRef.value as any).value = null;
             typedDate.value = '';
