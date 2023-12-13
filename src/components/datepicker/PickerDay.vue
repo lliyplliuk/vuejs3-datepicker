@@ -59,6 +59,8 @@ import {
   getMonthName,
   getDayNameAbbr,
   stringToDate,
+  gtDates,
+  ltDates,
 } from './utils/DateUtils';
 
 interface IDays {
@@ -260,10 +262,10 @@ export default defineComponent({
           }
         });
       }
-      if (typeof t.to !== 'undefined' && t.to && date < t.to) {
+      if (typeof t.to !== 'undefined' && t.to && ltDates(date as Date, t.to)) {
         disabledDates = true;
       }
-      if (typeof t.from !== 'undefined' && t.from && date > t.from) {
+      if (typeof t.from !== 'undefined' && t.from && gtDates(date as Date, t.from)) {
         disabledDates = true;
       }
       // TODO: refactor based on prop types

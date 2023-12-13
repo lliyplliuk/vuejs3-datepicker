@@ -97,6 +97,41 @@ export const compareDates = (
   return d1.getTime() === d2.getTime();
 };
 
+export const gtDates = (
+  date1: { getTime: () => string | number | Date },
+  date2: { getTime: () => string | number | Date },
+  useUtc = false
+): boolean => {
+  const d1 = new Date(date1.getTime());
+  const d2 = new Date(date2.getTime());
+
+  if (useUtc) {
+    d1.setUTCHours(0, 0, 0, 0);
+    d2.setUTCHours(0, 0, 0, 0);
+  } else {
+    d1.setHours(0, 0, 0, 0);
+    d2.setHours(0, 0, 0, 0);
+  }
+  return d1.getTime() > d2.getTime();
+};
+export const ltDates = (
+  date1: { getTime: () => string | number | Date },
+  date2: { getTime: () => string | number | Date },
+  useUtc = false
+): boolean => {
+  const d1 = new Date(date1.getTime());
+  const d2 = new Date(date2.getTime());
+
+  if (useUtc) {
+    d1.setUTCHours(0, 0, 0, 0);
+    d2.setUTCHours(0, 0, 0, 0);
+  } else {
+    d1.setHours(0, 0, 0, 0);
+    d2.setHours(0, 0, 0, 0);
+  }
+  return d1.getTime() < d2.getTime();
+};
+
 /**
  * Validates a date object
  * @param {Date} date - an object instantiated with the new Date constructor
