@@ -20,6 +20,7 @@
           :clear-button="false"
           :hide-input="true"
           :required="true"
+          :open-date="new Date()"
         >
         </appdate-picker>
       </div>
