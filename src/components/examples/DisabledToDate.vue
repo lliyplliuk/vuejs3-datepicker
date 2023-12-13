@@ -47,12 +47,12 @@ export default defineComponent({
     disabledToDate.value.setHours(0);
     disabledToDate.value.setMinutes(0);
     disabledToDate.value.setSeconds(0);
-    console.log('disabledToDate', disabledToDate);
     /**
      * Handler for select-day function
      */
     function dateSelected(payload: Date): void {
       console.log('dateSelected', payload);
+      console.log('disabledToDate', disabledToDate);
     }
 
     const template = `<template>
