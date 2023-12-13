@@ -56,25 +56,40 @@ export default defineComponent({
     }
 
     const template = `<template>
-    <appdate-picker
-     placeholder="Select Date"
+ <appdate-picker
           @input="dateSelected"
           :value="defaultValue"
-          :openDate="new Date()"
-          :disabled-to-date="disabledToDate"
-          :prevent-disable-date-selection="preventDisableDateSelection"
-    >
-    </appdate-picker>
+          :initial-date="new Date()"
+          :disabled-dates="{ to: disabledToDate }"
+          input-class="form-control"
+          language="ru"
+          theme="red"
+          wrapper-class="inputClass"
+          format="dd.MM.yyyy"
+          placeholder="Начало"
+          class="no-margin"
+          style="margin-left: 0 !important"
+          :typeable="true"
+          :clear-button="false"
+          :hide-input="true"
+          :required="true"
+          :open-date="new Date()"
+        >
+        </appdate-picker>
   </template>`;
 
     const script = `<script lang="js">
   import { ref } from 'vue';
   export default {
     setup(){
-      const defaultValue = ref(new Date());
+const defaultValue = ref(new Date());
     const disabledToDate = ref(new Date());
 
-    disabledToDate.value.setDate(disabledToDate.value.getDate() - 1);
+    disabledToDate.value.setDate(disabledToDate.value.getDate());
+    disabledToDate.value.setHours(0);
+    disabledToDate.value.setMinutes(0);
+    disabledToDate.value.setSeconds(0);
+    console.log('disabledToDate', disabledToDate);
     /**
      * Handler for select-day function
      */
@@ -83,9 +98,9 @@ export default defineComponent({
     }
 
       return {
-        dateSelected,
-        defaultValue,
-        disabledToDate
+         dateSelected,
+         defaultValue,
+         disabledToDate,
       }
     }
   }
