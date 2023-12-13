@@ -16,6 +16,7 @@
       <h1>Vue 3 Datepicker</h1>
       <ul>
         <li><a href="#typeable">Typeable</a></li>
+        <li><a href="#disabled-to-date">DisabledToDate</a></li>
         <li><a href="#disabled">Disabled</a></li>
         <li><a href="#defaultValue">Default Value</a></li>
         <li><a href="#Vmodel">V Model</a></li>
@@ -40,6 +41,9 @@
       <div class="wrapper">
         <div class="ind" id="typeable">
           <Typeable />
+        </div>
+        <div class="ind" id="disabled-to-date">
+          <DisabledToDate />
         </div>
         <div class="ind" id="disabled">
           <Disabled />
@@ -101,10 +105,12 @@ import ProgrammaticAccess from './components/examples/ProgrammaticAccess.vue';
 import SlotView from './components/examples/Slotview.vue';
 import StringView from './components/examples/StringView.vue';
 import Language from './components/examples/Language.vue';
+import DisabledToDate from './components/examples/DisabledToDate.vue';
 
 export default defineComponent({
   name: 'App-Home',
   components: {
+    DisabledToDate,
     Typeable,
     Disabled,
     DefaultValue,
