@@ -222,6 +222,7 @@ export default defineComponent({
     },
     mondayFirst: {
       type: Boolean,
+      default: true,
     },
     clearButton: {
       type: Boolean,

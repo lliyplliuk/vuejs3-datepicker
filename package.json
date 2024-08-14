@@ -1,6 +1,6 @@
 {
   "name": "datepicker-lliyplli",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Vue 3 datepicker fork vuejs3-datepicker",
   "files": [
     "build/*"
@@ -29,7 +29,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "moment": "^2.29.4",
+    "date-fns": "^3.6.0",
     "prismjs": "^1.22.0",
     "vite-plugin-dts": "^3.6.3",
     "vue": "^3.0.0"

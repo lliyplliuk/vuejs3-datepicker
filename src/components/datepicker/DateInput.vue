@@ -70,7 +70,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from 'vue';
-import moment from 'moment';
+import { parse as parseDate } from 'date-fns';
 import IconView from '../iconview/IconView.vue';
 import { formatDate, stringToDate } from './utils/DateUtils.ts';
 
@@ -257,7 +257,7 @@ export default defineComponent({
       if (props.typeable) {
         const { value } = inputRef.value as any;
         const format = typeof props.format === 'function' ? props.format(value) : props.format;
-        const temptypedDate = moment(value, format.toUpperCase()).toDate();
+        const temptypedDate = parseDate(value, format, new Date());
         if (!Number.isNaN(temptypedDate)) {
           typedDate.value = value;
           emit('typed-date', new Date(temptypedDate));
@@ -281,8 +281,7 @@ export default defineComponent({
         const str = (inputRef.value as any).value;
         const format = typeof props.format === 'function' ? props.format(str) : props.format;
         if (str) {
-          const date = moment(str, format.toUpperCase()).toDate();
-          console.log(date);
+          const date = parseDate(str, format, new Date());
           if (!date || Number.isNaN(date)) {
             clearDate();
             (inputRef.value as any).value = null;
