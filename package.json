@@ -1,6 +1,6 @@
 {
   "name": "datepicker-lliyplli",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Vue 3 datepicker fork vuejs3-datepicker",
   "files": [
     "build/*"
@@ -19,7 +19,7 @@
     "cz": "git-cz",
     "precommit": "lint-staged",
     "build": "vue-tsc && vite build --config vite.config.project.ts",
-    "build:lib": "vue-tsc && vite build --config vite.config.lib.ts",
+    "build:lib": "vue-tsc && vite build --config vite.config.lib.ts && mkdir build/locale && touch build/locale/.gitkeep",
     "preview": "vite preview",
     "lint": "eslint --cache --fix",
     "prepublishOnly": "npm run lint && npm run build:lib",
