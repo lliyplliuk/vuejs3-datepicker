@@ -4217,7 +4217,8 @@ const Fl = /* @__PURE__ */ Je(_l, [["render", Cl]]), Vl = () => {
       type: [String, Object, Array]
     },
     mondayFirst: {
-      type: Boolean
+      type: Boolean,
+      default: !0
     },
     clearButton: {
       type: Boolean
