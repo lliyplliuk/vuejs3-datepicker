@@ -5,7 +5,7 @@
       <div class="flex-block">
         <appdate-picker
           :ref="
-            (el) => {
+            (el: any) => {
               inputRef = el;
             }
           "
